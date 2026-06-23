@@ -1,0 +1,14 @@
+﻿<form method="get" asp-action="ShowImage">
+    <label>Customer ID</label>
+
+    <input type="number" name="customerId" required />
+
+    <button type="submit">Show Image</button>
+</form>
+
+@if (Context.Request.Query.ContainsKey("customerId"))
+{
+    <br />
+    <img src="@Url.Action("ShowImage", "Home", new { customerId = Context.Request.Query["customerId"] })"
+         style="max-width:600px; height:auto; border:1px solid black;" />
+}
